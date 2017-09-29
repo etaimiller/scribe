@@ -4,7 +4,6 @@ class AudioFilesController < ApplicationController
   end
 
   def create
-    binding.pry
     audio_file = AudioFile.new(audio_file_params)
     audio_file.save
     redirect_to new_audio_file_path
