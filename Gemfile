@@ -13,6 +13,11 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
+gem 'google-cloud-storage'
+gem 'carrierwave'
+gem 'fog-google'
+gem 'simple_form'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -43,6 +48,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
+  gem 'dotenv-rails'
+  gem 'pry-rails'
 end
 
 group :development do

@@ -1,0 +1,12 @@
+h1 Upload your audio file here:
+
+= simple_form_for @audio_file do |f|
+  = f.input :title, maxlength: 40
+  = f.input :audio
+  .form-actions
+    = f.button :submit, 'Done', class: 'button button--hollow', value: "done"
+
+h1 Existing files:
+ul
+  - @audio_files.each do |af|
+    li = af.title

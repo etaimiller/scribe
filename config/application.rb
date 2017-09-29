@@ -26,6 +26,12 @@ module Scribe
     # -- all .rb files in that directory are automatically loaded.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.system_tests = nil
+      g.view_specs false
+      g.helper_specs false
+      g.assets = false
+      g.helper = false
+    end
   end
 end
