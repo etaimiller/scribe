@@ -1,0 +1,5 @@
+= simple_form_for audio_file do |f|
+  = f.input :email, as: :email, required: true
+  = f.input :audio, required: true
+  .form-actions
+    = f.button :submit, 'Transcribe', class: 'button'

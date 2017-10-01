@@ -1,12 +1,6 @@
-h1 Upload your audio file here:
-
-= simple_form_for @audio_file do |f|
-  = f.input :title, maxlength: 40
-  = f.input :audio
-  .form-actions
-    = f.button :submit, 'Done', class: 'button button--hollow', value: "done"
-
-h1 Existing files:
-ul
-  - @audio_files.each do |af|
-    li = af.title
+.grid-x
+  .medium-offset-3.small-offset-1.medium-6.small-10.cell
+    .main-banner style='text-align:center;margin-top:100px'
+      h1 Upload your audio file here:
+  .medium-offset-3.small-offset-1.medium-6.small-10.cell
+    = render 'form', audio_file: @audio_file

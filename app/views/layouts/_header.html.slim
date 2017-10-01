@@ -1,0 +1,8 @@
+.top-bar
+  .top-bar-left
+    h3 Scribe
+  .top-bar-right
+    ul.menu
+      - unless request.original_url.include?('home')
+        li
+          = link_to 'Home', page_path('home')

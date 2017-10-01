@@ -4,14 +4,11 @@ html lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
-    title == content_for?(:title) ? yield(:title) : "Untitled"
-
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
-    = csrf_meta_tag
+    title == content_for?(:title) ? yield(:title) : "Scribe"
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-
+    = render 'layouts/header'
     == yield
-
-    = javascript_include_tag "application"

@@ -13,6 +13,6 @@ class AudioUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(m4a)
+    %w(m4a flac)
   end
 end
