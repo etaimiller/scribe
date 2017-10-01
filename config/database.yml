@@ -16,5 +16,6 @@ test:
 production:
   <<: *default
   database: scribe_production
-  username: scribe
-  password: <%= ENV['SCRIBE_DATABASE_PASSWORD'] %>
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: <%= ENV['PG_HOST'] %>
