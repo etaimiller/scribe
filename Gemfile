@@ -17,6 +17,7 @@ gem 'google-cloud-storage'
 gem 'carrierwave'
 gem 'fog-google'
 gem 'simple_form'
+gem 'stripe'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
