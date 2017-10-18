@@ -10,7 +10,7 @@ development: &default
 
 test:
   <<: *default
-  database: scribe_app_test
+  database: scribe_test
 
 production: &deploy
   <<: *default
