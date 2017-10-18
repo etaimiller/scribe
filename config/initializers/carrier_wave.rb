@@ -4,13 +4,13 @@ CarrierWave.configure do |config|
     # some test env variables
   else
 
-    config.fog_provider = 'fog/google'                        # required
+    config.fog_provider = 'fog/google'
     config.fog_credentials = {
       provider:                         'Google',
-      google_storage_access_key_id:     ENV['GOOGLE_STORAGE_ACCESS_KEY'],
-      google_storage_secret_access_key: ENV['GOOGLE_STORAGE_SECRET']
+      google_storage_access_key_id:     Rails.application.secrets.google_storage_access_key,
+      google_storage_secret_access_key: Rails.application.secrets.google_storage_secret
     }
 
-    config.fog_directory = ENV['GOOGLE_CLOUD_STORAGE_BUCKET']
+    config.fog_directory = Rails.application.secrets.google_storage_bucket
   end
 end
