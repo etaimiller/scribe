@@ -1,20 +1,20 @@
-default: &default
+development: &default
   adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
   database: scribe_development
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  reaping_frequency: 10
+  timeout: 5000
+
 
 test:
   <<: *default
   database: scribe_test
 
-production:
+production: &deploy
   <<: *default
+  adapter: postgresql
   database: scribe_production
-  username: scribe
-  password: <%= ENV['SCRIBE_DATABASE_PASSWORD'] %>
+
+staging: *deploy
