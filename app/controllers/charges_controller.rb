@@ -1,9 +1,6 @@
 class ChargesController < ApplicationController
   def new
-    #TODO: move currency logic in view into view helpers
-    #TODO: internationalise the currencys
     #TODO: decide what we want to do with email field on Stripe form (since we already ask for email)
-
     @amount = calculate_cost(params[:audio_file])
   end
 
