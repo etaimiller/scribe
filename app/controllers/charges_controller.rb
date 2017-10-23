@@ -1,13 +1,15 @@
 class ChargesController < ApplicationController
   def new
-    #TODO: grab audio file from params, determine length, work out correct cost
     #TODO: move currency logic in view into view helpers
     #TODO: internationalise the currencys
     #TODO: decide what we want to do with email field on Stripe form (since we already ask for email)
-    @amount = 500
+
+    @amount = calculate_cost(params[:audio_file])
   end
 
   def create
+    @amount = calculate_cost(params[:audio_file])
+
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -15,7 +17,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => params[:amount],
+      :amount      => @amount,
       :description => "Transcription - #{params[:audio_file]}",
       :currency    => 'usd'
     )
@@ -25,5 +27,12 @@ class ChargesController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+  end
+
+  private
+
+  def calculate_cost(audio_file)
+    #TODO: calculate cost based on length of audio file
+    500
   end
 end
