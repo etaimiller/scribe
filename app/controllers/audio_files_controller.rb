@@ -6,7 +6,7 @@ class AudioFilesController < ApplicationController
   def create
     audio_file = AudioFile.new(audio_file_params)
     audio_file.save
-    redirect_to edit_audio_file_path(audio_file)
+    redirect_to new_charge_path(audio_file: audio_file)
   end
 
   def new
